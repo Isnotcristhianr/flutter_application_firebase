@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "120353426460",
+    "project_id": "decisive-bazaar-302312",
+    "storage_bucket": "decisive-bazaar-302312.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120353426460:android:8c8c563ee554efe96d63d9",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120353426460-878lrnnq6t9ofgmsh9mphd97jtg5ag1a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuUqFn0cq_aobQfqexM6cr9Tzlng2AbLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120353426460-878lrnnq6t9ofgmsh9mphd97jtg5ag1a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
