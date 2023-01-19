@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_firebase/bienvenida.dart';
 import 'calcText.dart';
 import 'text2.dart';
+import 'bienvenida.dart';
+import 'package:flutter_application_firebase/pantallaGuardar.dart';
+
+import 'package:flutter_application_firebase/pantallaListar.dart';
 
 // ignore: camel_case_types
 class vistaHome extends StatefulWidget {
@@ -15,12 +20,14 @@ class vistaHomeState extends State<vistaHome> {
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case -1:
-        return Text("Seleccione una opcion");
+        return bienvenida();
       case 0:
         return calcText();
       case 1:
         return text2();
       case 2:
+        return text2();
+      case 3:
         return text2();
       default:
         return const Text("Error");
@@ -40,17 +47,31 @@ class vistaHomeState extends State<vistaHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Aplication IsnotCristhian3'),
+        title: const Text('Conceccion a BDD Firestore'),
       ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
-            const UserAccountsDrawerHeader(
+            UserAccountsDrawerHeader(
               accountName: Text("IsnotCrsithianr"),
               accountEmail: Text("isnotcristhianr@gmail.com"),
               currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.grey,
-                child: FlutterLogo(size: 42.0),
+                child: ClipOval(
+                  child: Image.asset(
+                    "assets/perfil.jpg",
+                    fit: BoxFit.cover,
+                    width: 90,
+                    height: 90,
+                  ),
+                ),
+              ),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                    'https://images.pexels.com/photos/3970330/pexels-photo-3970330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.png',
+                  ),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             ListTile(
@@ -87,6 +108,23 @@ class vistaHomeState extends State<vistaHome> {
               title: const Text('Salir'),
               leading: const Icon(Icons.exit_to_app),
               onTap: () => Navigator.of(context).pop(),
+            ),
+            const Divider(),
+            ListTile(
+              title: Text('Guardar Datos'),
+              leading: Icon(Icons.save),
+              onTap: (() {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => pantallaGuardar()));
+              }),
+            ),
+            ListTile(
+              title: Text('Listar Datos'),
+              leading: Icon(Icons.app_registration),
+              onTap: (() {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => pantallaListar()));
+              }),
             ),
           ],
         ),

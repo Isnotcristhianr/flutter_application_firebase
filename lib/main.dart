@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_firebase/vistaHome.dart';
 
-void main() => runApp(const miApp());
+//firebase
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+//void main() => runApp(const miApp());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const miApp());
+}
 
 // ignore: camel_case_types
 class miApp extends StatelessWidget {
@@ -12,6 +24,6 @@ class miApp extends StatelessWidget {
     return MaterialApp(
         home: vistaHome(),
         theme: ThemeData.dark(),
-        title: 'Aplicacion IsnotCR');
+        title: 'Conceccion a BDD Firestore');
   }
 }
