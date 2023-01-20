@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_firebase/bienvenida.dart';
+import 'package:flutter_application_firebase/reporteVista.dart';
 import 'calcText.dart';
 import 'text2.dart';
 import 'bienvenida.dart';
@@ -124,6 +125,14 @@ class vistaHomeState extends State<vistaHome> {
               onTap: (() {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => pantallaListar()));
+              }),
+            ),
+            ListTile(
+              title: Text('Reportes Api'),
+              leading: Icon(Icons.report),
+              onTap: (() {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => resporteVista()));
               }),
             ),
           ],

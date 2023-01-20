@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_firebase/pantallaActualizar.dart';
+import 'package:flutter_application_firebase/pantallaGuardar.dart';
 import 'package:flutter_application_firebase/text2.dart';
 
 import 'modelo/usuarioModel.dart';
@@ -43,6 +45,12 @@ class pantallaListar extends StatelessWidget {
                     ),
                     DataColumn(
                       label: Text(
+                        'Id',
+                        style: TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                    ),
+                    DataColumn(
+                      label: Text(
                         'Usuario',
                         style: TextStyle(fontStyle: FontStyle.italic),
                       ),
@@ -78,12 +86,15 @@ class pantallaListar extends StatelessWidget {
                             height: 50,
                           ),
                         ),
+                        DataCell(Text(datos.data?[index]['id'])),
                         DataCell(Text(datos.data?[index]['user'])),
                         DataCell(Text(datos.data?[index]['pass'])),
                         DataCell(IconButton(
                           icon: const Icon(Icons.delete),
                           onPressed: () {
-                            //objUsuario.deleteUsuario(datos.data?[index]['id']);
+                            objUsuario
+                                .eliminarUsuario(datos.data?[index]['id']);
+                            //eliminar
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -97,7 +108,7 @@ class pantallaListar extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => pantallaListar()),
+                                  builder: (context) => pantallaActualizar()),
                             );
                           },
                         )),
